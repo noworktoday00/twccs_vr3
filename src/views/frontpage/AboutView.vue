@@ -54,7 +54,7 @@
         </div>
         <div class="col mt-md-4">
           <div class="d-block bg-cloud-blue card-shadow rotate-2 mx-auto p-2" style="width: 80%;">
-            <img class="fluid-img-cover" src="@/assets/images/240460735_388463379449517_3767017185314368732_n.jpeg" alt="">
+            <img class="fluid-img-cover" src="@/assets/images/happy-rainbow.jpeg" alt="">
             <p class="text-center my-2">在參訪中探索無限可能</p>
           </div>
         </div>

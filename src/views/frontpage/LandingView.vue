@@ -58,7 +58,7 @@
     <div class="row row-cols-1 row-cols-md-2">
       <div class="col my-8 my-md-0">
         <div class="d-block bg-cloud-blue card-shadow rotate-1 mx-auto p-2" style="width: 80%;">
-          <img class="fluid-img-cover" src="@/assets/images/1125.jpeg" alt="">
+          <img class="fluid-img-cover" src="@/assets/images/happy-rainbow.jpeg" alt="">
           <p class="text-center my-2">在協會中一起學習與成長</p>
         </div>
       </div>
