@@ -1,0 +1,90 @@
+@import "../node_modules/bootstrap/scss/functions";
+// 這邊就是抓我們複製進來的 variables 檔案
+@import "./helpers/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/*
+ * Configure the z-index of the editor UI, so when inside a Bootstrap
+ * modal, it will be rendered over the modal.
+ */
+ :root {
+  --ck-z-default: 100;
+  --ck-z-modal: calc( var(--ck-z-default) + 999 );
+}
+
+.bg-light-opacity-4 {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.bg-light-opacity-5 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.bg-light-opacity-7 {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.fluid-img-bg {
+  background-image: url("@/assets/images/jason-blackeye-K1uLEiqTQEA-unsplash.jpeg");
+  background-size: cover;
+  background-position: center center;
+  height: 360px;
+}
+
+.fluid-img-bg-2 {
+    background-image: url('@/assets/images/260296434_444449180517603_156095733895985935_n.jpeg');
+    background-size: cover;
+    background-position: center center;
+    height: 360px;
+  }
+  
+.fluid-img-cover {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.table-list-image {
+  height: 100px;
+  object-fit: cover;
+}
+
+.fluid-img-cover-50 {
+  max-width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+.fluid-img-product {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+.fluid-img-product-2 {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-shadow {
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.15);
+}
+
+.rotate-1 {
+  transform: rotate(-5deg);
+}
+
+.rotate-2 {
+  transform: rotate(5deg);
+}
+
