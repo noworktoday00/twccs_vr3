@@ -145,10 +145,10 @@ export default {
       }
     },
     addToCart(title, qty, img, price) {
-      console.log(title);
-      console.log(qty);
+      // console.log(title);
+      // console.log(qty);
       let msgCart = localStorage.getItem('cart');
-      console.log(msgCart);
+      // console.log(msgCart);
       if(msgCart) {
         msgCart = JSON.parse(msgCart);
         let key = false;
@@ -181,13 +181,13 @@ export default {
     },
     clearCart(){
       localStorage.removeItem('cart');
-      console.log('刪除購物車資訊');
+      // console.log('刪除購物車資訊');
       this.getCart();
     },
     getCart() {
       let storageCart = localStorage.getItem("cart");
       this.localStorageCart = JSON.parse(storageCart);
-      console.log('這是購物車資訊：', this.localStorageCart);
+      // console.log('這是購物車資訊：', this.localStorageCart);
     }
   },
   created() {

@@ -181,7 +181,7 @@ export default {
       querySnapshot.forEach((doc) => {
         // firestore 是沒有辦法把整個 array 抓下來的，所以要自己把資料組成一個 array 來做 v-for
         this.productsList.push(doc.data());
-        console.log(this.productsList);
+        // console.log(this.productsList);
       });
     },
     newProduct() {
@@ -209,9 +209,10 @@ export default {
       // 目前解法：我這邊抓不到名稱，我就在外層抓好再放進去就好，所以在上面定義一個 fileName 先準備好名稱在後面帶入
       let storageRef = ref(imgStorage, `product/${fileName}`);
       uploadBytes(storageRef, uploadedFile).then((snapshot) => {
-        console.log('上傳成功');
+        // console.log('上傳成功');
+        alert('上傳成功！')
         getDownloadURL(snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          // console.log('File available at', downloadURL);
           this.productDetail.productImg = downloadURL;
         });
       });
@@ -225,9 +226,9 @@ export default {
       const imgStorage = storage;
       let storageRef = ref(imgStorage, `product/${fileName}`);
       uploadBytes(storageRef, uploadedFile).then((snapshot) => {
-        console.log('上傳成功');
+        // console.log('上傳成功');
         getDownloadURL(snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          // console.log('File available at', downloadURL);
           this.productDetail.productImages.push(
             {
               imgName: fileName,
@@ -240,7 +241,7 @@ export default {
     },
     // 刪除照片
     deleteImg(key, name) {
-      console.log(key, name);
+      // console.log(key, name);
       const imgStorage = storage;
       const desertRef = ref(imgStorage, `product/${name}`);
 
@@ -248,7 +249,7 @@ export default {
       deleteObject(desertRef).then(() => {
         // File deleted successfully
         this.productDetail.productImages.splice(key, 1);
-        console.log(this.productDetail.productImages);
+        // console.log(this.productDetail.productImages);
       }).catch((error) => {
         // Uh-oh, an error occurred!
       });
@@ -257,7 +258,7 @@ export default {
     async uploadProduct() {
       const docData = this.productDetail;
       await setDoc(doc(db, "products", this.productDetail.title), docData);
-      console.log('更新成功');
+      // console.log('更新成功');
       alert('更新商品成功！')
       this.productsList = [];
       this.getProducts();
@@ -267,7 +268,7 @@ export default {
       const docRef = doc(db, 'products', `${title}`);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        // console.log("Document data:", docSnap.data());
         this.productDetail = docSnap.data();
       } else {
         // docSnap.data() will be undefined in this case

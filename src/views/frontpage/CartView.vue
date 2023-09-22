@@ -120,7 +120,7 @@ export default {
       // console.log('這是購物車資訊：', this.localStorageCart);
     },
     removeFromCart(key){
-      console.log(key);
+      // console.log(key);
       this.localStorageCart.splice(key, 1);
       localStorage.setItem('cart', JSON.stringify(this.localStorageCart));
       this.getCart();
@@ -134,7 +134,7 @@ export default {
       this.orderDetail.orderList = this.localStorageCart;
       const docData = this.orderDetail;
       await setDoc(doc(db, "orderList", this.orderDetail.contactInfo.contactName), docData);
-      console.log('訂購成功');
+      // console.log('訂購成功');
       alert('訂單送出成功！')
       this.orderDetail = {
         contactInfo: {
@@ -147,7 +147,7 @@ export default {
       };
       this.localStorageCart= [],
       localStorage.removeItem('cart');
-      console.log(localStorage);
+      // console.log(localStorage);
     },
   },
   computed: {

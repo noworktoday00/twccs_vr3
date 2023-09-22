@@ -118,7 +118,7 @@ export default {
         // doc.data() is never undefined for query doc snapshots
         // console.log(doc.id, " => ", doc.data());
         this.productsList.push(doc.data());
-        console.log(this.productsList);
+        // console.log(this.productsList);
       });
     },
     showDetail(title) {

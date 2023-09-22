@@ -139,24 +139,24 @@ export default {
   methods: {
     async getActivities() {
       const timeNow = Date.now();
-      console.log(timeNow, typeof(timeNow));
+      // console.log(timeNow, typeof(timeNow));
       const categoryQuery = query(collection(db, "activities"), where("category", "in", ["event-registration" , "activity-results"]));
       const querySnapshot = await getDocs(categoryQuery);
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         // console.log(doc.id, " => ", doc.data());
         this.activitiesList.push(doc.data());
-        console.log(this.activitiesList);
+        // console.log(this.activitiesList);
       });
     },
     async getCategory(categoryName) {
       this.activitiesList = [];
-      console.log(categoryName);
+      // console.log(categoryName);
       const categoryQuery = query(collection(db, "activities"), where("category", "==", categoryName));
       const querySnapshot = await getDocs(categoryQuery);
       querySnapshot.forEach((doc) => {
         this.activitiesList.push(doc.data());
-        console.log(this.activitiesList);
+        // console.log(this.activitiesList);
       });
     },
     showDetail(title) {

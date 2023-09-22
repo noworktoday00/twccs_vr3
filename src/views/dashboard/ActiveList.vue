@@ -231,7 +231,7 @@ export default {
       uploadBytes(storageRef, uploadedFile).then((snapshot) => {
         console.log('上傳成功');
         getDownloadURL(snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          // console.log('File available at', downloadURL);
           this.activityArticle.activityImg = downloadURL;
         });
       });
@@ -241,26 +241,26 @@ export default {
       // 這邊要綁一個 ref 去找到檔案～
       let uploadedFile = this.$refs.fileInput.files[0];
       let fileName = uploadedFile.name;
-      console.log(uploadedFile.name);
+      // console.log(uploadedFile.name);
       const imgStorage = storage;
       let storageRef = ref(imgStorage, `active/${fileName}`);
       uploadBytes(storageRef, uploadedFile).then((snapshot) => {
-        console.log('上傳成功');
+        // console.log('上傳成功');
         getDownloadURL(snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          // console.log('File available at', downloadURL);
           this.activityArticle.activityImgs.push(
             {
               imgName: fileName,
               imgUrl: downloadURL,
             }
           );
-          console.log(this.activityArticle.activityImgs);
+          // console.log(this.activityArticle.activityImgs);
         });
       });
     },
     // 刪除照片
     deleteImg(key,name) {
-      console.log(key, name);
+      // console.log(key, name);
       const imgStorage = storage;
       const desertRef = ref(imgStorage, `active/${name}`);
 
@@ -268,18 +268,18 @@ export default {
       deleteObject(desertRef).then(() => {
         // File deleted successfully
         this.activityArticle.activityImgs.splice(key, 1);
-        console.log(this.activityArticle.activityImgs);
+        // console.log(this.activityArticle.activityImgs);
       }).catch((error) => {
         // Uh-oh, an error occurred!
       });
     },
     testDelete(key){
-      console.log(key);
+      // console.log(key);
     },
     // 製作 hashtag
     makeHashtags() {
       this.activityArticle.hashtags = this.tempHashtags.split(' ');
-      console.log(this.activityArticle.hashtags);
+      // console.log(this.activityArticle.hashtags);
       alert('標籤製作成功！')
     },
     // 轉 timestamp 用這邊做一個假的預約上傳判斷標的
@@ -291,7 +291,7 @@ export default {
     async uploadArticle() {
       const docData = this.activityArticle;
       await setDoc(doc(db, "activities", this.activityArticle.title), docData);
-      console.log('更新成功');
+      // console.log('更新成功');
       alert('更新文章成功！')
       this.activitiesList = [];
       this.getActivities();
@@ -301,13 +301,13 @@ export default {
       const docRef = doc(db, 'activities', `${title}`);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        // console.log("Document data:", docSnap.data());
         this.activityArticle = docSnap.data();
         this.tempHashtags = this.activityArticle.hashtags.join(' ');
         // this.activityArticle.updateTime = this.activityArticle.updateTimeStamp;
       } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
       }
     },
     // 刪除文章

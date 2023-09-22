@@ -183,14 +183,14 @@ export default {
     },
     async getActivities() {
       const timeNow = Date.now();
-      console.log(timeNow, typeof (timeNow));
+      // console.log(timeNow, typeof (timeNow));
       const categoryQuery = query(collection(db, "activities"), where("category", "==", "activity-results"),limit(3));
       const querySnapshot = await getDocs(categoryQuery);
       querySnapshot.forEach((doc) => {
         this.activitiesList.push(doc.data());
-        console.log(this.activitiesList);
+        // console.log(this.activitiesList);
         this.activitiesList.forEach((item, index) =>{
-          console.log(item.updateTimeStamp, index);
+          // console.log(item.updateTimeStamp, index);
         })
       });
     },

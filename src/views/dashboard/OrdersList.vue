@@ -229,9 +229,9 @@ export default {
           this.isSendOrder.push(item);
         }
       });
-      console.log(this.newOrder);
-      console.log(this.isPayOrder);
-      console.log(this.isSendOrder);
+      // console.log(this.newOrder);
+      // console.log(this.isPayOrder);
+      // console.log(this.isSendOrder);
     },
     // 看訂單明細
     async viewDetail(title) {

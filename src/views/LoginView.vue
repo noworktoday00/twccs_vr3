@@ -51,7 +51,7 @@ export default {
           // Signed in 
           const user = userCredential.user;
           if(user != null) {
-            console.log(user.uid);
+            // console.log(user.uid);
           }
           alert("登入成功！");
           this.$router.push('/activelist');

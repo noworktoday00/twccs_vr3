@@ -180,7 +180,7 @@ export default {
       querySnapshot.forEach((doc) => {
         // firestore 是沒有辦法把整個 array 抓下來的，所以要自己把資料組成一個 array 來做 v-for
         this.newsList.push(doc.data());
-        console.log(this.newsList);
+        // console.log(this.newsList);
       });
     },
     // 上傳圖片
@@ -188,15 +188,15 @@ export default {
       // 這邊要綁一個 ref 去找到檔案～
       let uploadedFile = this.$refs.fileInput.files[0];
       let fileName = uploadedFile.name;
-      console.log(uploadedFile.name);
+      // console.log(uploadedFile.name);
       const imgStorage = storage;
       // 這邊遇到問題，我就問，到底為什麼 this.uploadFile.name 會是 TypeError: Cannot read properties of undefined (reading 'name') ??? 
       // 目前解法：我這邊抓不到名稱，我就在外層抓好再放進去就好，所以在上面定義一個 fileName 先準備好名稱在後面帶入
       let storageRef = ref(imgStorage, `news/${fileName}`);
       uploadBytes(storageRef, uploadedFile).then((snapshot) => {
-        console.log('上傳成功');
+        // console.log('上傳成功');
         getDownloadURL(snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          // console.log('File available at', downloadURL);
           this.newsArticle.newsImg = downloadURL;
         });
       });
@@ -204,13 +204,13 @@ export default {
     // 製作 hashtag
     makeHashtags() {
       this.newsArticle.hashtags = this.tempHashtags.split(' ');
-      console.log(this.newsArticle.hashtags);
+      // console.log(this.newsArticle.hashtags);
       alert('標籤製作成功！')
     },
     // 轉 timestamp 用這邊做一個假的預約上傳判斷標的
     makeTimeStamp() {
       this.newsArticle.updateTimeStamp = new Date().valueOf(this.newsArticle.updateTime);
-      console.log(this.newsArticle.updateTimeStamp);
+      // console.log(this.newsArticle.updateTimeStamp);
     },
     // 上傳文章
     async uploadArticle() {
@@ -226,13 +226,13 @@ export default {
       const docRef = doc(db, 'news', `${title}`);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        // console.log("Document data:", docSnap.data());
         this.newsArticle = docSnap.data();
         this.tempHashtags = this.newsArticle.hashtags.join(' ');
         // this.activityArticle.updateTime = this.activityArticle.updateTimeStamp;
       } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
       }
     },
     // 刪除文章

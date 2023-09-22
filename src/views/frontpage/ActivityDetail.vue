@@ -77,7 +77,7 @@ export default {
         // console.log(this.activityDetail);
       } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
       }
     }
   },
